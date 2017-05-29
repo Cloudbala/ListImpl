@@ -1,11 +1,19 @@
 package com.example.demo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Iterator;
 
 /**
  * Created by openc on 29/5/2017.
+ *
+ * ArrayList can contain Duplicates
+ * ArrayList maintain Insertion Order
+ * ArrayList are not Threadsafe , If multiple Threads access arrayList it wont give correct results
+ * ArrayList is slow in Insertion and deletion
+ * ArrayList extends AbstractList and Implements List Interface
+ *
  */
 public class ArrayListImpl implements ArrayListInr {
 
@@ -35,7 +43,7 @@ public class ArrayListImpl implements ArrayListInr {
         blist.add(50);
         blist.add(29);
         blist.add(9);
-        blist.add(22);
+        blist.add(62);
     }
 
     public Integer calculateMinimum(List<Integer> list) {
@@ -66,10 +74,50 @@ public class ArrayListImpl implements ArrayListInr {
     }
 
     public void diffImpls(List<Integer> alist,List<Integer> blist){
+
+        alist.add(7);
+        alist.remove(1);
+        System.out.println(alist.size());
+        System.out.println(blist.isEmpty());
+
+        /*
+        Collections.addAll()
+         */
+        System.out.println("--------alist.addAll(blist)-----------");
         alist.addAll(blist);
         for (Integer value:alist){
             System.out.println(value);
-           }
-        System.out.println("----------------------------");
+        }
+        System.out.println("*********************************************");
+        /*
+        Collections.removeAll()
+         */
+        System.out.println("--------alist.removeAll(blist)-----------");
+        alist.removeAll(blist);
+        for (Integer value:alist){
+            System.out.println(value);
+        }
+        System.out.println("*********************************************");
+         /*
+        Collections.retainAll()
+         */
+        System.out.println("--------alist.retainAll(blist)-----------");
+        alist.retainAll(blist);
+        for (Integer value:alist){
+            System.out.println(value);
+        }
+        System.out.println("*********************************************");
+       // blist.clear();
+        System.out.println(blist);
+        if(alist.contains(3)) System.out.println(alist.get(3)+"available");
+        if(alist.containsAll(blist)) {
+            System.out.println("alist contains blist");
+        }else{
+            System.out.println("alist not contains blist");
+        }
+        System.out.println("*********************************************");
+       // Arrays a[]=new Arrays[];
+       // a=alist.toArray();
+
     }
 }
