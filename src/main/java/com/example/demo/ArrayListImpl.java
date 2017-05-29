@@ -16,6 +16,9 @@ public class ArrayListImpl implements ArrayListInr {
         this.alist = new ArrayList();
         this.blist = new ArrayList();
         InsertValuesInArrayList(alist,blist);
+        System.out.println("Minmum :"+calculateMinimum(alist));
+        System.out.println("Maximum :"+calculateMaximum(alist));
+        diffImpls(alist,blist);
     }
 
     public void InsertValuesInArrayList(List<Integer> alist , List<Integer> blist) {
@@ -55,7 +58,7 @@ public class ArrayListImpl implements ArrayListInr {
         Integer candidate = itr.next();
         while (itr.hasNext()) {
             Integer next = itr.next();
-            if (next.compareTo(candidate) < 0) {
+            if (next.compareTo(candidate) > 0) {
                 candidate = next;
             }
         }
@@ -66,6 +69,7 @@ public class ArrayListImpl implements ArrayListInr {
         alist.addAll(blist);
         for (Integer value:alist){
             System.out.println(value);
-        }
+           }
+        System.out.println("----------------------------");
     }
 }
